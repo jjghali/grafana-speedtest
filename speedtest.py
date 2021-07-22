@@ -37,7 +37,7 @@ def run_speedtest():
     
         print("Test complete!")
 
-schedule.every(1).minutes.do(run_speedtest)
+schedule.every(30).minutes.do(run_speedtest)
 
 print("Speedtest started...")
 while True:    
