@@ -1,14 +1,18 @@
 version: "3.8"
 
 services:
-    # speedtest:
-    #     build: 
-    #         context: .
-    #         dockerfile: Dockerfile
-    #     depends_on: 
-    #         - influxdb
-    #     links: 
-    #         - influxdb
+    speedtest:
+        container_name: speedtest
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        depends_on: 
+            - influxdb
+        env_file: .env
+        depends_on:
+            - influxdb
+        links: 
+            - influxdb
     
     grafana:
         image: grafana/grafana

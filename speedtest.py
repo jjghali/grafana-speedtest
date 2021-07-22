@@ -12,13 +12,9 @@ load_dotenv()
 
 def run_speedtest():
     url = os.environ["INFLUX_URL"]
-    # "http://localhost:8086"
     token = os.environ["INFLUX_TOKEN"]
-    # "z3jn6Ydh6DL4-U-LNO7WQisxLkpljJVJIV_PmbPBq-Z3Ide-iGC09bPQPwflTItrWbkbgnqq3Pd4mRGe0yWKRg=="
     org = os.environ["INFLUX_ORG"]
-    # "speedtest-org"
     bucket = os.environ["INFLUX_BUCKET"]
-    # "speedtest-bckt"
     
     time_now = str(datetime.now())
     print("{0} - Running speedtest".format(time_now))
@@ -41,8 +37,9 @@ def run_speedtest():
     
         print("Test complete!")
 
-schedule.every(30).minutes.do(run_speedtest)
+schedule.every(1).minutes.do(run_speedtest)
 
+print("Speedtest started...")
 while True:    
     schedule.run_pending()
     time.sleep(1)
